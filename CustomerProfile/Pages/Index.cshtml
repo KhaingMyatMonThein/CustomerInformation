@@ -1,0 +1,22 @@
+﻿
+
+
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Select your role:</p>
+    <div>
+        <a asp-page="/Admin" class="btn btn-primary">Admin</a>
+        <a asp-page="/Customer" class="btn btn-secondary">User</a> <!-- Ensure this points to the correct page -->
+    </div>
+</div>

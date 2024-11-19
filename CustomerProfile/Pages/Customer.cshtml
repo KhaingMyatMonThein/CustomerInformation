@@ -1,0 +1,73 @@
+﻿@page
+@model CustomerProfile.Pages.CustomerModel
+@{
+}
+
+<h2>User Profile Information</h2>
+<form method="post">
+    <input type="hidden" asp-for="UserProfile.Id" />
+
+    <div class="form-group">
+        <label asp-for="UserProfile.Name">Name:</label>
+        <input type="text" asp-for="UserProfile.Name" class="form-control" required />
+        <span asp-validation-for="UserProfile.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.DOB">Date of Birth:</label>
+        <input type="date" asp-for="UserProfile.DOB" class="form-control" required />
+        <span asp-validation-for="UserProfile.DOB" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Gender:</label>
+        <input type="radio" id="Male" name="UserProfile.Gender" value="Male" asp-for="UserProfile.Gender" /> Male
+        <input type="radio" id="Female" name="UserProfile.Gender" value="Female" asp-for="UserProfile.Gender" /> Female
+        <span asp-validation-for="UserProfile.Gender" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.Age">Age:</label>
+        <input type="number" asp-for="UserProfile.Age" class="form-control" required />
+        <span asp-validation-for="UserProfile.Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.Phone">Phone:</label>
+        <input type="tel" asp-for="UserProfile.Phone" class="form-control" required />
+        <span asp-validation-for="UserProfile.Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.Email">Email:</label>
+        <input type="email" asp-for="UserProfile.Email" class="form-control" required />
+        <span asp-validation-for="UserProfile.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.Street">Street:</label>
+        <input type="text" asp-for="UserProfile.Street" class="form-control" required />
+        <span asp-validation-for="UserProfile.Street" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserProfile.City">City:</label>
+        <input type="text" asp-for="UserProfile.City" class="form-control" required />
+        <span asp-validation-for="UserProfile.City" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="">Nationality</label>
+        <select asp-for="UserProfile.NationalityID" class="form-control" asp-items="@Model.NationalityList">
+            <option value="">Select Nationality</option>
+        </select>
+        <span asp-validation-for="UserProfile.NationalityID" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Submit</button>
+    <a asp-page="/Index" class="btn btn-secondary mt-2">Back</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
